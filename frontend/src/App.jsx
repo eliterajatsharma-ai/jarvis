@@ -191,22 +191,20 @@ export default function App() {
   const impact = activeIncident?.impact;
 
   return (
-    <div className="min-h-screen bg-[#070a12] text-slate-100 flex flex-col font-sans">
+    <div className="app-shell min-h-screen bg-[#070a12] text-slate-100 flex flex-col font-sans">
       {/* Top HUD Bar */}
-      <header className="h-14 bg-[#0b101d] border-b border-slate-800/80 px-4 flex items-center justify-between sticky top-0 z-40 backdrop-blur-md">
+      <header className="app-header h-14 bg-[#0b101d] border-b border-slate-800/80 px-4 flex items-center justify-between sticky top-0 z-40 backdrop-blur-md">
         <div className="flex items-center space-x-3">
-          {/* Arc Reactor Logo */}
-          <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-[#00f0ff]/10 border border-[#00f0ff]/50 arc-glow">
-            <div className="w-3 h-3 rounded-full bg-[#00f0ff] animate-ping" />
-            <div className="absolute w-2 h-2 rounded-full bg-white" />
+          <div className="app-brand-mark">
+            <Activity aria-hidden="true" />
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <span className="font-mono font-extrabold text-sm tracking-widest text-[#00f0ff]">
+              <span className="font-semibold text-sm tracking-tight text-slate-900">
                 J.A.R.V.I.S.
               </span>
-              <span className="hidden sm:inline text-[10px] font-mono text-slate-500 uppercase tracking-wider">
-                // AIOps Autonomous Incident Intelligence
+              <span className="hidden sm:inline text-xs text-slate-500">
+                Incident intelligence
               </span>
             </div>
           </div>
@@ -280,8 +278,8 @@ export default function App() {
           {/* 1. Root Cause Verdict Card */}
           <div className="bg-[#090e1a] border border-slate-800 rounded-xl p-3 shadow-lg">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono text-slate-400 uppercase tracking-wider">
-                DETERMINISTIC ROOT CAUSE
+              <span className="text-xs font-mono text-slate-500 tracking-wide">
+                Root cause analysis
               </span>
               <span className="text-[10px] font-mono text-[#00f0ff] bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800">
                 {int_pct(activeIncident?.confidence_score || 0.91)}% CONFIDENCE
@@ -353,8 +351,8 @@ export default function App() {
 
           {/* 2. Business Impact & User Journeys */}
           <div className="bg-[#090e1a] border border-slate-800 rounded-xl p-3 shadow-lg">
-            <div className="text-[10px] font-mono text-slate-400 uppercase tracking-wider mb-2">
-              BUSINESS & USER IMPACT
+            <div className="text-[10px] font-mono text-slate-500 tracking-wide mb-2">
+              Business impact
             </div>
             <div className="grid grid-cols-2 gap-2 text-xs font-mono mb-2.5">
               <div className="bg-slate-900/60 p-2 rounded-lg border border-slate-800">
@@ -393,8 +391,8 @@ export default function App() {
           {/* 3. Live Telemetry Stream */}
           <div className="bg-[#090e1a] border border-slate-800 rounded-xl p-3 shadow-lg flex-1 flex flex-col min-h-[220px]">
             <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-2">
-              <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
-                TELEMETRY FEED
+              <span className="text-[10px] font-mono text-slate-500 tracking-wide">
+                Live telemetry
               </span>
               <div className="flex bg-slate-900 rounded p-0.5 border border-slate-800">
                 <button
@@ -444,9 +442,9 @@ export default function App() {
           {/* Top Hero: Dependency Graph & Time Machine */}
           <div className="bg-[#090e1a] border border-slate-800 rounded-xl p-3 shadow-xl flex flex-col">
             <div className="flex items-center justify-between mb-1.5 px-1">
-              <span className="text-xs font-mono text-slate-400 uppercase flex items-center space-x-1.5">
+              <span className="text-xs font-mono text-slate-500 flex items-center space-x-1.5">
                 <Activity className="w-3.5 h-3.5 text-[#00f0ff]" />
-                <span>MICROSERVICE TOPOLOGY & CAUSAL PROPAGATION</span>
+                <span>Service topology</span>
               </span>
               <span className="text-[11px] font-mono text-slate-400">
                 Selected: <strong className="text-[#00f0ff]">{selectedService}</strong>
@@ -468,7 +466,7 @@ export default function App() {
                 <div className="flex items-center space-x-2">
                   <Clock className="w-3.5 h-3.5 text-[#00f0ff]" />
                   <span className="text-[11px] font-mono font-bold text-slate-300">
-                    TIME MACHINE // REPLAY GRAPH AT TIME T
+                    Incident timeline
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -519,7 +517,7 @@ export default function App() {
                   }`}
                 >
                   <Flame className="w-3.5 h-3.5" />
-                  <span>CHAOS LAB</span>
+                  <span>Chaos lab</span>
                 </button>
 
                 <button
@@ -531,7 +529,7 @@ export default function App() {
                   }`}
                 >
                   <Bot className="w-3.5 h-3.5" />
-                  <span>AI WAR ROOM</span>
+                  <span>AI assistant</span>
                 </button>
 
                 <button
@@ -543,7 +541,7 @@ export default function App() {
                   }`}
                 >
                   <Award className="w-3.5 h-3.5" />
-                  <span>ACCURACY SCOREBOARD</span>
+                  <span>Accuracy</span>
                 </button>
 
                 <button
@@ -555,7 +553,7 @@ export default function App() {
                   }`}
                 >
                   <Zap className="w-3.5 h-3.5" />
-                  <span>PLAYBOOKS</span>
+                  <span>Playbooks</span>
                 </button>
               </div>
 

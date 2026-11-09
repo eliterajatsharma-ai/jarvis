@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Bot, User, Sparkles, ShieldCheck, Tag, Terminal } from 'lucide-react';
+import { Send, Sparkles, ShieldCheck, Tag } from 'lucide-react';
 
 const SUGGESTED_QUERIES = [
   "Why did you blame the DB?",
@@ -63,15 +63,17 @@ export default function WarRoomChat({ activeIncident, onSelectEvidence }) {
       {/* Header */}
       <div className="flex items-center justify-between pb-3 border-b border-slate-800 mb-3">
         <div className="flex items-center space-x-2">
-          <Bot className="w-5 h-5 text-[#00f0ff] animate-pulse" />
-          <span className="font-mono text-sm font-bold text-slate-200 tracking-wider">
-            AI WAR ROOM // GROUNDED COPILOT
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-blue-100 bg-blue-50">
+            <Sparkles className="w-4 h-4 text-blue-600" />
+          </div>
+          <span className="text-sm font-semibold text-slate-900">
+            Grounded assistant
           </span>
         </div>
         <div className="flex items-center space-x-2">
           <span className="flex items-center space-x-1 text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/40">
             <ShieldCheck className="w-3 h-3 text-emerald-400" />
-            <span>ZERO HALLUCINATION GUARDRAILS</span>
+            <span>Evidence grounded</span>
           </span>
         </div>
       </div>

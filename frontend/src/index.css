@@ -2,40 +2,323 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  font-family: "Segoe UI Variable", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+}
+
 @layer base {
   body {
-    background-color: #070a12;
-    color: #e2e8f0;
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    background: #f8fafc;
+    color: #0f172a;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
   }
 }
 
-/* Custom HUD Scrollbars */
+::selection {
+  color: #1e3a8a;
+  background: #dbeafe;
+}
+
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #0c1322;
+  background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 3px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: #cbd5e1;
+  background-clip: padding-box;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #00f0ff;
+  background: #94a3b8;
+  background-clip: padding-box;
 }
 
-/* Arc Reactor Pulse Effect */
-.arc-glow {
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2);
+.app-shell {
+  min-height: 100vh;
+  background: #f8fafc;
+  color: #0f172a;
 }
 
-.crimson-glow {
-  box-shadow: 0 0 20px rgba(255, 51, 102, 0.5), inset 0 0 10px rgba(255, 51, 102, 0.2);
+.app-shell .app-header {
+  height: auto;
+  min-height: 64px;
+  padding: 10px clamp(16px, 3vw, 36px);
+  gap: 16px;
+  flex-wrap: wrap;
+  border-color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025);
+  color: #0f172a;
 }
 
-.hud-panel-border {
-  border: 1px solid rgba(56, 189, 248, 0.15);
-  background: linear-gradient(180deg, rgba(12, 19, 34, 0.95) 0%, rgba(7, 10, 18, 0.98) 100%);
-  backdrop-filter: blur(12px);
+.app-shell main {
+  padding: clamp(16px, 2.4vw, 32px);
+  gap: 16px;
+}
+
+.app-shell [class*="bg-[#090e1a]"],
+.app-shell [class*="bg-[#0b101d]"],
+.app-shell [class*="bg-[#080d19]"],
+.app-shell [class*="bg-[#0c1322]"] {
+  border-color: #e2e8f0 !important;
+  background-color: #ffffff !important;
+  color: #0f172a;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.025), 0 4px 14px rgba(15, 23, 42, 0.025);
+}
+
+.app-shell [class*="bg-[#070a12]"],
+.app-shell [class*="bg-slate-950"],
+.app-shell [class*="bg-black/"] {
+  background-color: #f8fafc !important;
+}
+
+.app-shell [class*="bg-slate-900"],
+.app-shell [class*="bg-slate-800"] {
+  background-color: #f1f5f9 !important;
+}
+
+.app-shell [class*="bg-[#0f172a]"] {
+  background-color: #f8fafc !important;
+}
+
+.app-shell [class*="bg-[#140c16]"],
+.app-shell [class*="bg-red-950"],
+.app-shell [class*="bg-rose-950"] {
+  background-color: #fff1f2 !important;
+}
+
+.app-shell [class*="bg-amber-950"],
+.app-shell [class*="bg-yellow-950"] {
+  background-color: #fffbeb !important;
+}
+
+.app-shell [class*="bg-emerald-950"] {
+  background-color: #ecfdf5 !important;
+}
+
+.app-shell [class*="bg-cyan-950"],
+.app-shell [class*="bg-blue-950"],
+.app-shell [class*="bg-[#122b4a]"],
+.app-shell [class*="bg-[#0d2847]"] {
+  background-color: #eff6ff !important;
+}
+
+.app-shell [class*="bg-purple-950"] {
+  background-color: #faf5ff !important;
+}
+
+.app-shell [class*="bg-gradient-to-r"] {
+  background-image: linear-gradient(135deg, #334155, #475569) !important;
+}
+
+.app-shell [class*="border-slate-"] {
+  border-color: #e2e8f0 !important;
+}
+
+.app-shell [class*="border-cyan-800"],
+.app-shell [class*="border-[#00f0ff]"] {
+  border-color: #bfdbfe !important;
+}
+
+.app-shell [class*="text-slate-100"],
+.app-shell [class*="text-slate-200"],
+.app-shell [class*="text-slate-300"] {
+  color: #1e293b !important;
+}
+
+.app-shell [class*="text-slate-400"],
+.app-shell [class*="text-slate-500"] {
+  color: #64748b !important;
+}
+
+.app-shell [class*="text-[#00f0ff]"] {
+  color: #2563eb !important;
+}
+
+.app-shell [class*="text-[#ff3366]"] {
+  color: #e11d48 !important;
+}
+
+.app-shell [class*="text-red-400"],
+.app-shell [class*="text-rose-400"] {
+  color: #dc2626 !important;
+}
+
+.app-shell [class*="text-red-300"],
+.app-shell [class*="text-rose-300"] {
+  color: #b91c1c !important;
+}
+
+.app-shell [class*="text-amber-400"],
+.app-shell [class*="text-yellow-400"] {
+  color: #b45309 !important;
+}
+
+.app-shell [class*="text-amber-300"],
+.app-shell [class*="text-yellow-300"] {
+  color: #92400e !important;
+}
+
+.app-shell [class*="text-emerald-400"] {
+  color: #059669 !important;
+}
+
+.app-shell [class*="text-emerald-300"],
+.app-shell [class*="text-emerald-200"] {
+  color: #047857 !important;
+}
+
+.app-shell [class*="text-purple-400"],
+.app-shell [class*="text-purple-300"] {
+  color: #7e22ce !important;
+}
+
+.app-shell [class*="text-purple-200"] {
+  color: #6b21a8 !important;
+}
+
+.app-shell [class*="text-cyan-400"],
+.app-shell [class*="text-cyan-300"],
+.app-shell [class*="text-blue-400"] {
+  color: #1d4ed8 !important;
+}
+
+.app-shell [class~="bg-[#00f0ff]"] {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+.app-shell button {
+  border-radius: 8px;
+  font-weight: 500;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.app-shell button:not(:disabled):hover {
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
+.app-shell button:disabled {
+  cursor: not-allowed;
+}
+
+.app-shell input:not([type="range"]),
+.app-shell select {
+  border-color: #e2e8f0;
+  border-radius: 8px;
+  background-color: #fff !important;
+  color: #0f172a;
+}
+
+.app-shell input::placeholder {
+  color: #94a3b8 !important;
+}
+
+.app-shell .font-mono {
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: normal;
+}
+
+.app-shell code,
+.app-shell pre {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.app-shell .uppercase {
+  text-transform: none;
+  letter-spacing: 0.015em;
+}
+
+.app-shell [class*="rounded-xl"][class*="border"] {
+  border-radius: 16px;
+}
+
+.app-shell svg {
+  stroke-width: 1.75;
+}
+
+.app-shell table thead {
+  background: #f8fafc !important;
+}
+
+.app-shell table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.app-shell input[type="range"] {
+  accent-color: #2563eb;
+}
+
+.app-shell .app-brand-mark {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid #dbeafe;
+  border-radius: 11px;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.app-shell .app-brand-mark svg {
+  width: 19px;
+  height: 19px;
+  stroke-width: 1.8;
+}
+
+@media (max-width: 767px) {
+  .app-shell .app-header {
+    padding: 12px 16px;
+  }
+
+  .app-shell main {
+    padding: 14px;
+    gap: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
